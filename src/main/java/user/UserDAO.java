@@ -66,13 +66,9 @@ public class UserDAO {
       PreparedStatement pstmt =null;
       
       try {
-    	  
          conn = DatabaseUtil.getConnection();
-
          pstmt = conn.prepareStatement(SQL);// sql에서 중복코드 문제 방지
-
          pstmt.setString(1, user.getUserID()); // ? 내용 채우는 항목 1
-
          pstmt.setString(2, user.getUserPassword()); // ? 내용 채우는 항목 1
          pstmt.setString(3, user.getUserEmail()); // ? 내용 채우는 항목 1
          pstmt.setString(4, user.getUserEmailHash()); // ? 내용 채우는 항목 1
