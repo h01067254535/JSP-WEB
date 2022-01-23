@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
 <%@ page import="user.UserDAO"%>
 <!DOCTYPE html>
@@ -16,19 +16,19 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 
-<title>°­ÀÇÆò°¡</title>
+<title>ê°•ì˜í‰ê°€</title>
 </head>
 <body>
 	<%
 	String userID = null;
-	if (session.getAttribute("userID") != null) { //·Î±×ÀÎ ÇÑ »óÅÂ¸é
+	if (session.getAttribute("userID") != null) { //ë¡œê·¸ì¸ í•œ ìƒíƒœë©´
 		userID = (String) session.getAttribute("userID");
 	}
 	if (userID != null) {
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('·Î±×ÀÎÀÌ µÈ »óÅÂÀÔ´Ï´Ù.');");
-		script.println("location.href = 'index.jsp';"); //ÀÌ¸ŞÀÏ ÀÎÁõ 
+		script.println("alert('ë¡œê·¸ì¸ì´ ëœ ìƒíƒœì…ë‹ˆë‹¤.');");
+		script.println("location.href = 'index.jsp';"); //ì´ë©”ì¼ ì¸ì¦ 
 		script.println("</script>");
 		script.close();
 		return;
@@ -36,7 +36,7 @@
 	%>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="index.jsp">°­ÀÇÆò°¡ À¥ »çÀÌÆ®</a>
+		<a class="navbar-brand" href="index.jsp">ê°•ì˜í‰ê°€ ì›¹ ì‚¬ì´íŠ¸</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -46,23 +46,23 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="index.jsp">¸ŞÀÎ
+				<li class="nav-item"><a class="nav-link" href="index.jsp">ë©”ì¸
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="index.jsp"
 					id="navbarDropdown" role="button" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false"> È¸¿ø °ü¸® </a>
+					aria-haspopup="true" aria-expanded="false"> íšŒì› ê´€ë¦¬ </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<%
-						if (userID == null) { //·Î±×ÀÎÀÌ ¾ÈµÇ¾îÀÖÀ¸¸é, ·Î±×ÀÎ°ú È¸¿ø°¡ÀÔ¸¸ º¸ÀÓ.
+						if (userID == null) { //ë¡œê·¸ì¸ì´ ì•ˆë˜ì–´ìˆìœ¼ë©´, ë¡œê·¸ì¸ê³¼ íšŒì›ê°€ì…ë§Œ ë³´ì„.
 						%>
-						<a class="dropdown-item" href="userLogin.jsp">·Î±×ÀÎ</a> <a
-							class="dropdown-item" href="userJoin.jsp">È¸¿ø°¡ÀÔ</a>
+						<a class="dropdown-item" href="userLogin.jsp">ë¡œê·¸ì¸</a> <a
+							class="dropdown-item" href="userJoin.jsp">íšŒì›ê°€ì…</a>
 						<%
 						} else {
 						%>
-						<a class="dropdown-item" href="userLogout.jsp">·Î±×¾Æ¿ô</a>
+						<a class="dropdown-item" href="userLogout.jsp">ë¡œê·¸ì•„ì›ƒ</a>
 
 						<%
 						}
@@ -70,28 +70,28 @@
 					</div>
 				</li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search"
-					placeholder="³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä." aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">°Ë»ö</button>
+			<form action="./index.jsp" method="get" class="form-inline my-2 my-lg-0">
+				<input type="text" name="search" class="form-control mr-sm-2" type="search"
+					placeholder="ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”." aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">ê²€ìƒ‰</button>
 			</form>
 		</div>
 	</nav>
 	<section class="container mt-3" style="max-width: 560px;">
 		<form method="post" action="./userRegisterAction.jsp">
 			<div class="form-group">
-				<label>¾ÆÀÌµğ</label>
+				<label>ì•„ì´ë””</label>
 				<input type="text" name="userID" class="form-control">
 			</div>
 			<div class="form-group">
-				<label>ºñ¹Ğ¹øÈ£</label>
+				<label>ë¹„ë°€ë²ˆí˜¸</label>
 				<input type="password" name="userPassword" class="form-control">
 			</div>
 			<div class="form-group">
-				<label>ÀÌ¸ŞÀÏ</label>
+				<label>ì´ë©”ì¼</label>
 				<input type="email" name="userEmail" class="form-control">
 			</div>
-			<button type="submit" class="btn btn-primary">È¸¿ø°¡ÀÔ</button>
+			<button type="submit" class="btn btn-primary">íšŒì›ê°€ì…</button>
 		</form>
 	</section>
 
